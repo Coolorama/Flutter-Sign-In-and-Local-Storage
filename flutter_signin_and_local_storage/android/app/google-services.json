@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "968002863536",
+    "project_id": "flutter-signin-local-storage",
+    "storage_bucket": "flutter-signin-local-storage.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:968002863536:android:8251f3601eeae3ab17d675",
+        "android_client_info": {
+          "package_name": "com.example.flutter_signin_and_local_storage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "968002863536-aciameoo20i4drl20ghbfrp8bhs7gljd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBsJ0BxS-AqqK25eqxUgV5YuEPGURdfpc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "968002863536-aciameoo20i4drl20ghbfrp8bhs7gljd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
