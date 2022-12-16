@@ -18,6 +18,7 @@ class _SignupState extends State<Signup> {
   AuthService _authService = AuthService();
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController lastNameController = TextEditingController();
+
   bool isSignUp = false;
   @override
   Widget build(BuildContext context) {
@@ -85,13 +86,9 @@ class _SignupState extends State<Signup> {
 
   signUpProvider() {
     try {
-      setState(() {
-        isSignUp = true;
-      });
       _authService.signupUser();
+
       Navigator.pushReplacementNamed(context, Dashboard.routeName);
-    } catch (e) {
-      print(e);
-    }
+    } catch (e) {}
   }
 }

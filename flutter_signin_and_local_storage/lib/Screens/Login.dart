@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_signin_and_local_storage/Models/StorageItem.dart';
 import 'package:flutter_signin_and_local_storage/Screens/Dashboard.dart';
 import 'package:flutter_signin_and_local_storage/Screens/Signup.dart';
 import 'package:flutter_signin_and_local_storage/Services/AuthService.dart';
+import 'package:flutter_signin_and_local_storage/Services/StorageService.dart';
 import 'package:flutter_signin_and_local_storage/Widgets/InputText.dart';
 import 'package:flutter_signin_and_local_storage/Widgets/InputPassword.dart';
 import 'package:flutter_signin_and_local_storage/Widgets/PrimaryButton.dart';
@@ -16,8 +18,9 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   AuthService _authService = AuthService();
+  StorageService _storageService = StorageService();
   bool obscurePassword = true;
-  bool isLogin = false;
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -89,15 +92,14 @@ class _LoginState extends State<Login> {
     });
   }
 
-  loginWithProvider() {
+  loginWithProvider() async {
     try {
-      setState(() {
-        isLogin = true;
-      });
       _authService.loginUser();
+      var accessToken =
+          StorageItem("accessToken", _authService.email as String);
+      await _storageService.saveData(accessToken);
+
       Navigator.pushReplacementNamed(context, Dashboard.routeName);
-    } catch (e) {
-      print(e);
-    }
+    } catch (e) {}
   }
 }
